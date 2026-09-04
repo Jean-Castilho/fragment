@@ -1,0 +1,17 @@
+{
+  "name": "mongodb-api",
+  "version": "1.0.0",
+  "description": "API collections MongoDB Atlas",
+  "main": "src/server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node src/server.js"
+  },
+  "keywords": [],
+  "author": "Jean Castilho",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^17.4.2",
+    "mongodb": "^6.0.0"
+  }
+}
