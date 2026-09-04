@@ -13,8 +13,8 @@ export async function createApp(db) {
 
     const router = new Router();
 
-    router.post('/getCollection', controller.create.bind(controller));
-    router.get('/postCollection', controller.getAll.bind(controller));
+    router.post('/postCollection', controller.create.bind(controller));
+    router.get('/getCollection', controller.getAll.bind(controller));
     router.get('/collections/:id', controller.getById.bind(controller));
     router.put('/collections/:id', controller.update.bind(controller));
     router.delete('/collections/:id', controller.delete.bind(controller));
