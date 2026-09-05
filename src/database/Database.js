@@ -6,6 +6,16 @@ dotenv.config();
 class Database {
   constructor() {
     this.uri = process.env.DATABASE_URL;
+    this.databaseName = process.env.DATABASE_NAME;
+
+    if (!this.uri) {
+      throw new Error('DATABASE_URL não configurada.');
+    }
+
+    if (!this.databaseName) {
+      throw new Error('DATABASE_NAME não configurada.');
+    }
+
     this.client = new MongoClient(this.uri);
     this.db = null;
   }
@@ -13,7 +23,7 @@ class Database {
   async connect() {
     try {
       await this.client.connect();
-      this.db = this.client.db(); // Conecta ao banco de dados especificado na URI ou ao 'test' por padrão
+      this.db = this.client.db(this.databaseName);
       console.log('Conectado ao MongoDB Atlas');
       return this.db;
     } catch (error) {
